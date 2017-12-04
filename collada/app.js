@@ -14,7 +14,7 @@ function Iniciar(){
 
 	//criando a câmera
 	camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
-	camera.position.set(0,6,0);
+	camera.position.set(0,-8,0);
 	scene.add(camera);
 
 	//adicionando listener para ajustar o tamanho do render de acordo com o tamanho na janela
@@ -36,18 +36,46 @@ function Iniciar(){
 	scene.add(light);
 
 	//carregando modelo e adicionando na cena
-	var loader = new THREE.ColladaLoader();
+//	var loader = new THREE.ColladaLoader();
+//
+//	loader.options.convertUpAxis = false;
+//
+//	loader.load( 'male/male_survivor.dae', function ( collada ){
+//	    var dae = collada.scene;
+//
+//		dae.position.set(0,6,-20);//x,y,z- se você souber as dimensões e posições no Blender ;)
+//		//dae.scale.set(0.5,0.5,0.5);//reduzir o tamanho em escala pela metade, em todas as dimensões
+//
+//		scene.add(dae);
+//	});
+    
 
-	loader.options.convertUpAxis = false;
 
-	loader.load( 'male/male_survivor.dae', function ( collada ){
-	    var dae = collada.scene;
+//var loader = new THREE.ObjectLoader();
+//loader.load("steve/steve.json",function ( pessoa ) {
+//     scene.add( pessoa );
+//});
+//    
+    // instanciando loader
+var loader = new THREE.JSONLoader();
 
-		dae.position.set(0,6,-20);//x,y,z- se você souber as dimensões e posições no Blender ;)
-		//dae.scale.set(0.5,0.5,0.5);//reduzir o tamanho em escala pela metade, em todas as dimensões
 
-		scene.add(dae);
-	});
+loader.load(
+
+	// resource URL
+	'steve/steve.json',
+
+	// Function when resource is loaded
+	function ( geometry, materials ) {
+
+		var material = materials[ 0 ];
+		var pessoa = new THREE.Mesh( geometry, material );
+
+		scene.add( pessoa );
+
+	}
+);
+
 
 	//controle de orbita da câmera
 	var cameraOrbit = 0;
@@ -58,7 +86,7 @@ function Iniciar(){
 	//função para controlar a renderização da cena
 	function render(){
 		//rotacionando a câmera
-		cameraOrbit += 0.009;
+		cameraOrbit += 0.001;
 		camera.position.x = Math.cos(cameraOrbit) * 100;
 		camera.position.y = Math.cos(cameraOrbit) * 100;
 		camera.position.z = Math.cos(cameraOrbit) * 100;

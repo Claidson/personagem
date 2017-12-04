@@ -6,49 +6,49 @@
   </asset>
   <library_images>
     <image id="Image">
-      <init_from>file:///rope_d.tga</init_from>
+      <init_from>rope_d.tga</init_from>
     </image>
     <image id="Image1">
-      <init_from>file:///grapple_d.tga</init_from>
+      <init_from>grapple_d.tga</init_from>
     </image>
     <image id="Image2">
-      <init_from>file:///machete_d.tga</init_from>
+      <init_from>machete_d.tga</init_from>
     </image>
     <image id="Image3">
-      <init_from>file:///flashlight_d.tga</init_from>
+      <init_from>flashlight_d.tga</init_from>
     </image>
     <image id="Image4">
-      <init_from>file:///vest_d.tga</init_from>
+      <init_from>vest_d.tga</init_from>
     </image>
     <image id="Image5">
-      <init_from>file:///shirt_d.tga</init_from>
+      <init_from>shirt_d.tga</init_from>
     </image>
     <image id="Image6">
-      <init_from>file:///arm_d.tga</init_from>
+      <init_from>arm_d.tga</init_from>
     </image>
     <image id="Image7">
-      <init_from>file:///gloves_d.tga</init_from>
+      <init_from>gloves_d.tga</init_from>
     </image>
     <image id="Image8">
-      <init_from>file:///backpack_d.tga</init_from>
+      <init_from>backpack_d.tga</init_from>
     </image>
     <image id="Image9">
-      <init_from>file:///pants_d.tga</init_from>
+      <init_from>pants_d.tga</init_from>
     </image>
     <image id="Image10">
-      <init_from>file:///shoes_d.tga</init_from>
+      <init_from>shoes_d.tga</init_from>
     </image>
     <image id="Image11">
-      <init_from>file:///hair_d.tga</init_from>
+      <init_from>hair_d.tga</init_from>
     </image>
     <image id="Image12">
-      <init_from>file:///head_d.tga</init_from>
+      <init_from>head_d.tga</init_from>
     </image>
     <image id="Image13">
-      <init_from>file:///eye_d.tga</init_from>
+      <init_from>eye_d.tga</init_from>
     </image>
     <image id="Image14">
-      <init_from>file:///mouth_d.tga</init_from>
+      <init_from>mouth_d.tga</init_from>
     </image>
   </library_images>
   <library_materials>
