@@ -49,33 +49,58 @@ function Iniciar(){
 //		scene.add(dae);
 //	});
     
-
-
-//var loader = new THREE.ObjectLoader();
-//loader.load("steve/steve.json",function ( pessoa ) {
-//     scene.add( pessoa );
-//});
-//    
+ 
     // instanciando loader
-var loader = new THREE.JSONLoader();
 
 
-loader.load(
+// var loader = new THREE.ObjectLoader();
+// loader.load('steve.json',
+// 	function( obj ){ scene.add( obj );
+//                   });
 
-	// resource URL
-	'steve/steve.json',
+    var loader = new THREE.JSONLoader();
 
-	// Function when resource is loaded
-	function ( geometry, materials ) {
+// load a resource
+    loader.load(
 
-		var material = materials[ 0 ];
-		var pessoa = new THREE.Mesh( geometry, material );
+        // resource URL
+        'steve.json',
 
-		scene.add( pessoa );
+        // Function when resource is loaded
+        function ( geometry, materials ) {
 
-	}
-);
+            var material = materials[ 0 ];
+            var object = new THREE.Mesh( geometry, material );
 
+            scene.add( object );
+
+        }
+    );
+
+// var loader = new THREE.JSONLoader();
+// 				loader.load( 'steve/steve.json', function ( geometry, materials ) {
+// 					// adjust color a bit
+// 					var material = materials[ 0 ];
+// 					material.morphTargets = true;
+// 					material.color.setHex( 0xffaaaa );
+// //					for ( var i = 0; i < 729; i ++ ) {
+// 						var mesh = new THREE.Mesh( geometry, materials );
+// 						// random
+// //						var x = ( ( i % 27 )  - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
+// //						var z = ( Math.floor( i / 27 ) - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
+// //						mesh.position.set( x, 0, z );
+// //						var s = THREE.Math.randFloat( 0.00075, 0.001 );
+// //						mesh.scale.set( s, s, s );
+// //						mesh.rotation.y = THREE.Math.randFloat( -0.25, 0.25 );
+// //						mesh.matrixAutoUpdate = false;
+// //						mesh.updateMatrix();
+// 						scene.add( mesh );
+// //						mixer.clipAction( geometry.animations[ 0 ], mesh )
+// //								.setDuration( 1 )			// one second
+// //								.startAt( - Math.random() )	// random phase (already running)
+// //								.play();					// let's go
+// //					}
+// 				} );
 
 	//controle de orbita da câmera
 	var cameraOrbit = 0;
@@ -86,11 +111,17 @@ loader.load(
 	//função para controlar a renderização da cena
 	function render(){
 		//rotacionando a câmera
-		cameraOrbit += 0.001;
-		camera.position.x = Math.cos(cameraOrbit) * 100;
-		camera.position.y = Math.cos(cameraOrbit) * 100;
-		camera.position.z = Math.cos(cameraOrbit) * 100;
-		camera.lookAt(ORIGIN);
+//		cameraOrbit += 0.001;
+//		camera.position.x = Math.cos(cameraOrbit) * 100;
+//		camera.position.y = Math.cos(cameraOrbit) * 100;
+//		camera.position.z = Math.cos(cameraOrbit) * 100;
+        				var timer = Date.now() * 0.0005;
+				camera.position.x = Math.cos( timer ) * 10;
+				camera.position.y = 20;
+    
+				camera.position.z = Math.sin( timer ) * 10;
+
+		camera.lookAt(scene.position );
 
 		//renderizando a cena
 		renderer.render( scene, camera );
